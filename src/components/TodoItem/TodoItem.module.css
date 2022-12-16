@@ -1,0 +1,15 @@
+.todoItemContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    min-height: 50px;
+    transition: all 100ms linear;
+    border: 2px solid #fff
+}
+
+.todoItemContainer:hover {
+    border-color: #d9d9d9
+}

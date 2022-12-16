@@ -1,0 +1,9 @@
+.todosContainer {
+    margin-top: 20px;
+    background-color: #ECEDF6;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    max-height: 600px;
+    overflow-y: auto;
+}
