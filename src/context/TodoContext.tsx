@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 import { Todo, TodoStatus } from '../../types/todo.type';
 import { todosMock } from '../mocks/todos.mock';
 
@@ -18,7 +18,7 @@ const TodoContext = createContext<TodoContextState>({
   children: null,
 });
 
-export const TodoProvider: React.FC<TodoContextState> = ({ children }) => {
+export const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [todos, setTodos] = useState<Todo[]>(todosMock);
 
   const addTodo = (title: string) => {
