@@ -1,0 +1,9 @@
+.iconButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.iconButtonImage {
+    width: 20px;
+}

@@ -1,14 +1,9 @@
-import { useEffect } from 'react';
 import { useTodoContext } from '../../context/TodoContext';
 import TodoItem from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 
 function TodoList() {
   const { todos } = useTodoContext();
-
-  useEffect(() => {
-    console.log('todos:', todos);
-  }, []);
 
   return (
     <div className={styles.todosContainer}>

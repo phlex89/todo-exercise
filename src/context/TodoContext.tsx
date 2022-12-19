@@ -1,61 +1,34 @@
-import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
-import { Todo, TodoStatus } from '../../types/todo.type';
-import { todosMock } from '../mocks/todos.mock';
+import React, { createContext, ReactNode, useContext } from 'react';
+import { Todo } from '../../types/todo.type';
+import { useTodos } from '../hooks/useTodos';
 
 interface TodoContextState {
   todos: Todo[];
   addTodo: (title: string) => void;
-  toggleTodo: (id: string) => void;
-  removeTodo: (id: string) => void;
-  children?: React.ReactNode;
+  toggleTodoStatus: (id: string) => void;
+  deleteTodo: (id: string) => void;
+  editTodo: (id: string, title: string) => void;
 }
 
 const TodoContext = createContext<TodoContextState>({
   todos: [],
   addTodo: () => {},
-  toggleTodo: () => {},
-  removeTodo: () => {},
-  children: null,
+  toggleTodoStatus: () => {},
+  deleteTodo: () => {},
+  editTodo: () => {},
 });
 
 export const TodoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [todos, setTodos] = useState<Todo[]>(todosMock);
-
-  const addTodo = (title: string) => {
-    const payload: Todo = {
-      id: new Date().getTime().toString(),
-      created: new Date(),
-      status: TodoStatus.PENDING,
-      title,
-    };
-    setTodos((prev) => [...prev, payload]);
-  };
-
-  const toggleTodo = (id: string) => {
-    setTodos((prevState) =>
-      prevState.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            status: todo.status === TodoStatus.COMPLETED ? TodoStatus.PENDING : TodoStatus.COMPLETED,
-          };
-        }
-        return todo;
-      }),
-    );
-  };
-
-  const removeTodo = (id: string) => {
-    setTodos([...todos.filter((todo) => todo.id !== id)]);
-  };
+  const { todos, addTodo, toggleTodoStatus, deleteTodo, editTodo } = useTodos();
 
   return (
     <TodoContext.Provider
       value={{
         todos,
         addTodo,
-        toggleTodo,
-        removeTodo,
+        toggleTodoStatus,
+        editTodo,
+        deleteTodo,
       }}
     >
       {children}

@@ -1,26 +1,29 @@
 import { Todo, TodoStatus } from './../../types/todo.type';
 
+const yesterday = ((d) => new Date(d.setDate(d.getDate() - 1)))(new Date());
+const twoDaysAgo = ((d) => new Date(d.setDate(d.getDate() - 2)))(new Date());
+
 export const todosMock: Todo[] = [
   {
-    created: new Date(),
+    createdAt: new Date(),
     id: '1671206382611',
     status: TodoStatus.PENDING,
     title: 'First todo',
   },
   {
-    created: new Date(),
+    createdAt: yesterday,
     id: '1671234582612',
     status: TodoStatus.PENDING,
     title: 'Second todo',
   },
   {
-    created: new Date(),
+    createdAt: twoDaysAgo,
     id: '167120666223',
     status: TodoStatus.COMPLETED,
     title: 'Third todo',
   },
   {
-    created: new Date(),
+    createdAt: new Date(),
     id: '1671252992614',
     status: TodoStatus.COMPLETED,
     title:

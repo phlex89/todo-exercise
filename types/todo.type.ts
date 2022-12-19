@@ -5,7 +5,7 @@ export enum TodoStatus {
 
 export type Todo = {
   id: string;
-  created: Date;
+  createdAt: Date;
   title: string;
   status: TodoStatus;
 };

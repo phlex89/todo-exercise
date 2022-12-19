@@ -1,6 +1,6 @@
 .todoItemContainer {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr 80px;
     gap: 20px;
     align-items: center;
     margin-bottom: 10px;
@@ -12,28 +12,45 @@
     border: 1px solid #fff
 }
 
+.todoItemContainer:hover .editIcon {
+    display: block
+}
+
 .todoItemContainer:hover {
     border-color: #d9d9d9
 }
 
 .checkbox {
     cursor: pointer;
-}
-
-.todoItemContent {
-
+    width: 16px;
+    height: 16px;
 }
 
 .title {
     font-weight: bold;
+    padding: 3px;
 }
+
 .date {
+    margin-top: 5px;
     display: block;
     font-size: 11px;
     line-height: 1;
 }
 
-.deleteIcon {
-    cursor: pointer;
-    width: 20px;
+.actions {
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+}
+
+.editIcon {
+    display: none;
+}
+
+.input {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(202, 202, 202);
 }
