@@ -21,7 +21,7 @@ export const todosMock: Todo[] = [
     createdAt: twoDaysAgo,
     id: '167120666223',
     status: TodoStatus.COMPLETED,
-    title: 'Mock todo n.2 - Should be start completed',
+    title: 'Mock todo n.3 - Should be start completed',
   },
   {
     createdAt: today,
