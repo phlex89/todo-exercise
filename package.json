@@ -1,9 +1,12 @@
 {
   "name": "todo-gility",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://phlex89.github.io/todo-exercise",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "todo-exercise -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
