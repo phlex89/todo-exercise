@@ -26,3 +26,11 @@ The app will run on: http://localhost:5173/
 `npm run tests`
 
 Then open ./coverage/index.html file in your browser
+
+
+# Preview
+## This application has been deployed on http://todo-exercise-j6p6.vercel.app using **Vercel**
+
+
+***N.B. At the first run you will see 4 todos already created to simulate a real-world example.
+The application will keep the updates across page reloads using local storage.***
