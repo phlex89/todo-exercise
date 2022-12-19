@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Todo, TodoStatus } from '../../types/todo.type';
 import { orderByPendingFirst, orderByRecentsFirst, TODOS_LOCAL_STORAGE_KEY } from '../context/todo.utils';
 import { todosMock } from '../mocks/todos.mock';
@@ -6,8 +6,7 @@ import { useLocalStorage } from './useLocalStorage';
 
 export const useTodos = () => {
   const { getItem, saveItem } = useLocalStorage<Todo[]>(TODOS_LOCAL_STORAGE_KEY);
-  const savedFromLs = getItem<Todo[]>();
-  console.log('savedFromLs:', savedFromLs);
+  const savedFromLs = getItem();
   const [todos, setTodos] = useState<Todo[]>(savedFromLs || todosMock);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ export const useTodos = () => {
   const addTodo = (title: string) => {
     const payload: Todo = {
       id: new Date().getTime().toString(),
-      createdAt: new Date(),
+      createdAt: new Date().toISOString(),
       status: TodoStatus.PENDING,
       title,
     };
@@ -57,7 +56,6 @@ export const useTodos = () => {
   };
 
   const getOrderedTodos = useCallback(() => {
-    console.log('todos:', todos);
     return todos.sort(orderByRecentsFirst).sort(orderByPendingFirst);
   }, [todos]);
 

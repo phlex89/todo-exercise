@@ -8,12 +8,12 @@ export function useLocalStorage<T>(key: string) {
     [key],
   );
 
-  const getItem = <T>() => {
+  const getItem = useCallback(() => {
     const saved: string | null = localStorage.getItem(key);
     if (saved) {
       return JSON.parse(saved) as T;
     }
-  };
+  }, [key]);
 
   return { saveItem, getItem };
 }

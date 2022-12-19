@@ -30,7 +30,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const confirmEdit = useCallback(
     (e: React.SyntheticEvent) => {
       e.preventDefault();
-      console.log('value:', value);
       if (value) editTodo(id, value);
       setIsEditing(false);
     },

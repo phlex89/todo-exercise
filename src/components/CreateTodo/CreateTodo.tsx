@@ -28,10 +28,16 @@ function CreateTodo() {
   );
 
   return (
-    <form action="">
+    <form>
       <div className={styles.addTodoContainer}>
-        <TextInput value={value} onChange={updateInput} />
-        <IconButton image={addIcon} alt={'Add todo'} onClick={handleSubmit} className={styles.addTodoIcon} />
+        <TextInput placeholder={'What you have to do?'} value={value} onChange={updateInput} />
+        <IconButton
+          disabled={!value}
+          image={addIcon}
+          alt={'Add todo'}
+          onClick={handleSubmit}
+          className={styles.addTodoIcon}
+        />
       </div>
     </form>
   );

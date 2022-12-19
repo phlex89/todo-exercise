@@ -13,6 +13,7 @@ interface IconButtonProps {
   alt?: string;
   type?: IconButtonType;
   className?: string;
+  disabled?: boolean;
 }
 
 const IconButton: React.FC<IconButtonProps> = ({
@@ -20,10 +21,16 @@ const IconButton: React.FC<IconButtonProps> = ({
   image,
   alt = '',
   className,
+  disabled,
   type = IconButtonType.SUBMIT,
 }) => {
   return (
-    <button type={type} onClick={onClick} className={`${styles.iconButton} ${className}`}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${styles.iconButton} ${className} ${disabled ? styles.disabled : ''}`}
+    >
       <img role={'button'} className={`${styles.iconButtonImage}`} src={image} alt={alt} />
     </button>
   );

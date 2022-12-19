@@ -4,6 +4,16 @@
     cursor: pointer;
 }
 
+.iconButton.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+
+.iconButton.disabled .iconButtonImage {
+    opacity: 0.7;
+}
+
 .iconButtonImage {
     width: 20px;
 }
